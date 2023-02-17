@@ -1,16 +1,18 @@
 import React from "react";
-import './App.css'
+import "./App.css";
 
 const Square = (props) => {
   const handleClick = () => {
     if (!props.squareValue) {
-      props.squares.splice(props.index, 1, "X");
-      props.setSquares(props.squares);
-      props.setPlayer(!props.player);
-    } else {
-      props.squares.splice(props.index, 1, "O");
-      props.setSquares(props.squares);
-      props.setPlayer(!props.player);
+      if (props.player) {
+        props.squares.splice(props.index, 1, "X");
+        props.setSquares(props.squares);
+        props.setPlayer(!props.player);
+      } else {
+        props.squares.splice(props.index, 1, "O");
+        props.setSquares(props.squares);
+        props.setPlayer(!props.player);
+      }
     }
   };
 
